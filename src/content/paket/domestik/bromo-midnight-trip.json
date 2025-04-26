@@ -15,7 +15,11 @@
       "text": ""
     }
   ],
-  "images": [{ "url": "bromo-midnight-trip/bromo-main.jpg" }],
+  "images": [
+    { "url": "bromo-midnight-trip/bromo-main.jpg" },
+    { "url": "images/hero-2.jpeg" },
+    { "url": "images/hero-3.jpg" }
+  ],
   "itineraries": [
     {
       "items": [
