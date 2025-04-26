@@ -25,7 +25,7 @@ function NavTab({ tabs }: NavTabProps) {
           className={`col-span-1 px-4 py-2 rounded w-full text-center capitalize ring-1 ring-deep-blue/25 ${
             activeTab === index
               ? "bg-deep-blue text-white font-semibold"
-              : "bg-gray-200 text-gray-700"
+              : "bg-gray-200 text-gray-700 font-medium"
           }`}
           onClick={() => handleClick(index)}
         >

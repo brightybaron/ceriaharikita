@@ -53,11 +53,10 @@ const { data } = Astro.props;
         <table class="w-full">
           <tbody>
             <tr class="">
-              <td
-                class="text-sm sm:text-base p-2 border border-gray-400 font-semibold w-1/4"
+              <td class="p-2 border border-gray-400 font-semibold w-1/4"
                 >Meeting Point</td
               >
-              <td class="text-sm sm:text-base p-2 border border-gray-400">
+              <td class="p-2 border border-gray-400">
                 {
                   data.meetingpoint.length === 1
                     ? data.meetingpoint[0]
@@ -68,11 +67,10 @@ const { data } = Astro.props;
               </td>
             </tr>
             <tr class="">
-              <td
-                class="text-sm sm:text-base p-2 border border-gray-400 font-semibold"
+              <td class="p-2 border border-gray-400 font-semibold"
                 >Waktu Mulai</td
               >
-              <td class="text-sm sm:text-base p-2 border border-gray-400">
+              <td class="p-2 border border-gray-400">
                 {
                   data.itineraries.length > 1
                     ? `Hari 1, ${data.itineraries[0].items[0].time}`
@@ -81,11 +79,10 @@ const { data } = Astro.props;
               </td>
             </tr>
             <tr class="">
-              <td
-                class="text-sm sm:text-base p-2 border border-gray-400 font-semibold"
+              <td class="p-2 border border-gray-400 font-semibold"
                 >Waktu Selesai</td
               >
-              <td class="text-sm sm:text-base p-2 border border-gray-400">
+              <td class="p-2 border border-gray-400">
                 {
                   data.itineraries.length > 1
                     ? `Hari ${data.itineraries.length},`
@@ -109,8 +106,8 @@ const { data } = Astro.props;
 
       <div id={tabs[1].name} class="tab-pane">
         <div class="space-y-2">
-          <Accordion data={data.itineraries} isFaq="" client:load />
-          <p class="sm:text-sm text-xs text-end italic mt-4">
+          <Accordion data={data.itineraries} faqPage={false} client:load />
+          <p class="text-sm text-end italic mt-4">
             <strong>*</strong> Hanya sebagai acuan dasar, dalam pelaksanaanya menyesuaikan
             dengan kondisi yang ada.
           </p>
@@ -135,7 +132,7 @@ const { data } = Astro.props;
                     const pax = data.price.length + 1 - index;
                     return (
                       <tr class="text-center">
-                        <td class="px-4 py-2 border">{pax}</td>
+                        <td class="px-4 py-2 border font-medium">{pax}</td>
                         <td class="px-4 py-2 border font-medium">
                           Rp. {`${Number(item).toLocaleString("id-ID")}.000`}
                         </td>
@@ -145,7 +142,7 @@ const { data } = Astro.props;
               }
             </tbody>
           </table>
-          <p class="sm:text-sm text-xs italic">
+          <p class="text-sm italic">
             {
               `*Lebih dari ${data.price.length + 1} orang/grup besar, silakan hubungi kami.`
             }
@@ -179,11 +176,7 @@ const { data } = Astro.props;
               Excluded
             </p>
             <ul class="sm:p-4 p-2 space-y-1 list-disc list-inside">
-              {
-                data.fasilitas.exclude.map((item: string) => (
-                  <li class="sm:text-base text-sm">{item}</li>
-                ))
-              }
+              {data.fasilitas.exclude.map((item: string) => <li>{item}</li>)}
             </ul>
           </div>
         </div>
@@ -194,8 +187,8 @@ const { data } = Astro.props;
     <div
       class="h-auto bg-sandy-beige py-4 border-y-2 border-black rounded text-center"
     >
-      <span class="text-sm">Mulai dari : </span>
-      <span class="font-semibold"
+      <span class="text-sm font-medium italic">Mulai dari : </span>
+      <span class="font-bold text-lg"
         >Rp. {`${Number(data.price[0]).toLocaleString("id-ID")}.000`} / pax</span
       >
     </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IconChevronDown, IconChevronUp } from "@components/Icons";
 
-const Accordion = ({ data, faqPage }: any) => {
+const Accordion = ({ data, faqPage }: { data: any; faqPage: boolean }) => {
   const [openDays, setOpenDays] = useState<{ [key: string]: boolean }>({});
 
   const toggleDay = (title: string) => {
@@ -30,7 +30,7 @@ const Accordion = ({ data, faqPage }: any) => {
               <span
                 className={`text-lg ${
                   openDays[item.title] ? "text-sandy-beige" : "text-deep-blue"
-                } font-semibold ${faqPage || ""}`}
+                } font-semibold ${faqPage ? "hidden" : ""}`}
               >
                 Hari {index + 1}
               </span>
@@ -43,7 +43,7 @@ const Accordion = ({ data, faqPage }: any) => {
                 overflow-hidden transition-all duration-200 bg-white
                 ${
                   openDays[item.title]
-                    ? "max-h-96 px-2 sm:px-4 py-3"
+                    ? "max-h-fit px-2 sm:px-4 py-3"
                     : "max-h-0"
                 }
               `}
@@ -53,7 +53,7 @@ const Accordion = ({ data, faqPage }: any) => {
                 {item.items.map((item: any, idx: number) => (
                   <li
                     key={idx}
-                    className="text-slate-800 sm:text-base text-sm list-disc list-inside"
+                    className="text-slate-800 font-medium list-disc list-inside"
                   >
                     {item.details}
                   </li>
@@ -65,7 +65,7 @@ const Accordion = ({ data, faqPage }: any) => {
                   {item.items.map((item: any, idx: number) => (
                     <tr
                       key={idx}
-                      className="flex text-slate-900 sm:text-base text-sm mb-2 last:mb-0"
+                      className="flex text-slate-900 mb-2 last:mb-0"
                     >
                       <td className="flex mr-1 justify-center min-w-13">
                         {item.time && <b>{item.time}</b>}

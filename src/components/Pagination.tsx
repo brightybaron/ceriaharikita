@@ -13,9 +13,7 @@ const Pagination = ({ data }: any) => {
             currentPage * itemsPerPage + itemsPerPage
           )
           .map((item: any) => (
-            <li className="text-sm sm:text-base" key={item}>
-              {item}
-            </li>
+            <li key={item}>{item}</li>
           ))}
       </ul>
       {data.length > itemsPerPage && (
