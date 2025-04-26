@@ -1,0 +1,178 @@
+---
+import { IconClock4, IconPeople } from "@components/Icons";
+
+const { image, title, slug, jenistrip, durasi, price } = Astro.props;
+---
+
+<>
+  <div
+    class="bg-white overflow-hidden shadow-lg rounded-md ring-gray-200 ring-1 min-h-76 touch-card"
+  >
+    <div class="relative group">
+      <div class="relative overflow-hidden aspect-[4/3] rounded-md">
+        <div class="card-link">
+          <img
+            src={`/images/${image}`}
+            alt=""
+            class="object-cover object-center group-hover:scale-125 transition-all duration-300 h-full w-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <div
+        class="absolute top-48 group-hover:top-4 transition-all duration-300 left-0 w-full bg-white group-hover:bg-white/95 min-h-16 h-full p-2"
+      >
+        <div class="relative px-2">
+          <div class="absolute top-1/5 right-0 px-2 group-hover:hidden">
+            <p class="text-end text-sm">
+              {price.length === 0 ? "Fix price" : "Start from"}
+            </p>
+            <p class="font-semibold text-deep-blue leading-4">
+              Rp. {`${Number(price).toLocaleString("id-ID")}.000 `}
+            </p>
+            <p class="text-end text-sm leading-2.5">/ pax</p>
+          </div>
+          <div class="relative mt-1">
+            <h3 class="font-semibold sm:font-bold mb-2 text-gray-800 leading-5">
+              {title}
+            </h3>
+            <div
+              class="flex items-center text-sm text-slate-700 font-medium gap-x-1"
+            >
+              <span>
+                <IconPeople />
+              </span>
+              {jenistrip} Trip
+            </div>
+            <div
+              class="flex items-center text-sm text-slate-700 font-medium gap-x-1"
+            >
+              <span>
+                <IconClock4 />
+              </span>
+              {durasi} Hari
+            </div>
+            <div class="mt-8">
+              <p class="text-sm leading-3">
+                {price.length === 0 ? "Fix price" : "Start from"}
+              </p>
+              <p class="text-xl font-semibold text-deep-blue">
+                Rp. {`${Number(price).toLocaleString("id-ID")}.000 `}<span
+                  class="font-normal">/ pax</span
+                >
+              </p>
+            </div>
+            <a
+              href={`/paket/${slug}`}
+              class="details-link inline-flex px-6 py-3 mt-4 text-sm font-medium text-white bg-slate-800 rounded-md hover:bg-slate-700"
+            >
+              Details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</>
+
+<style>
+  /* Mobile touch styles to mimic hover effect */
+  .touch-card.is-touched .group-hover\:top-4 {
+    top: 1.5rem; /* 6px */
+  }
+
+  .touch-card.is-touched .group-hover\:bg-white\/95 {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .touch-card.is-touched .group-hover\:scale-125 {
+    transform: scale(1.25);
+  }
+
+  .touch-card.is-touched .group-hover\:hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Check if device supports touch
+    const isTouchDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
+      const cards = document.querySelectorAll(".touch-card");
+
+      cards.forEach((card) => {
+        // Variables to track touch state
+        let isExpanded = false;
+        let touchStartTime = 0;
+
+        // Add touch event listeners to the whole card
+        card.addEventListener("touchstart", function (e) {
+          touchStartTime = Date.now();
+        });
+
+        card.addEventListener("touchend", function (e) {
+          // const touchDuration = Date.now() - touchStartTime;
+
+          // Remove expanded state from all other cards
+          document.querySelectorAll(".touch-card.is-touched").forEach((el) => {
+            if (el !== card) {
+              el.classList.remove("is-touched");
+            }
+          });
+
+          // If the card isn't expanded yet, prevent navigation and expand it
+          if (!isExpanded) {
+            e.preventDefault();
+            // If target is the card link or image, prevent default navigation
+            if ((e.target as HTMLElement).closest(".card-link")) {
+              e.stopPropagation();
+            }
+
+            card.classList.add("is-touched");
+            isExpanded = true;
+          } else {
+            // If we're clicking the details link and card is already expanded, allow navigation
+            if ((e.target as HTMLElement).closest(".details-link")) {
+              // Allow default link behavior
+              return true;
+            }
+
+            // If clicking on the image link while expanded, now allow navigation
+            if ((e.target as HTMLElement).closest(".card-link")) {
+              // Allow default link behavior
+              return true;
+            }
+
+            // Otherwise toggle the expanded state off
+            card.classList.remove("is-touched");
+            isExpanded = false;
+          }
+        });
+
+        // Handle all link clicks to ensure navigation works correctly
+        const links = card.querySelectorAll(".card-link, .details-link");
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            if (!isExpanded) {
+              e.preventDefault();
+            }
+          });
+        });
+      });
+
+      // Close any expanded card when tapping elsewhere
+      document.addEventListener("touchstart", function (e) {
+        if (!(e.target as HTMLElement).closest(".touch-card")) {
+          document
+            .querySelectorAll(".touch-card.is-touched")
+            .forEach((card) => {
+              card.classList.remove("is-touched");
+            });
+        }
+      });
+    }
+  });
+</script>

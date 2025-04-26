@@ -1,0 +1,43 @@
+---
+import DetailPaketLayout from "@layouts/DetailPaketLayout.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("paket");
+
+  const domestikEntries = entries.filter(
+    (entry) => entry.data.category === "domestik"
+  );
+
+  return domestikEntries.map((entry) => ({
+    params: { slug: entry.data.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const entries = await getCollection("paket");
+const entry = entries.find(
+  (item) => item.data.slug === slug && item.data.category === "domestik"
+);
+
+if (!entry) {
+  throw new Error(`No domestik paket found for slug: ${slug}`);
+}
+
+const { data } = entry;
+
+const head = {
+  deskripsi: data.descriptions[0].text,
+  image: data.images[0].url,
+  canonical: Astro.url.pathname,
+};
+
+export const prerender = true;
+---
+
+<MainLayout title={data.title} {...head}>
+  <DetailPaketLayout data={data} />
+</MainLayout>

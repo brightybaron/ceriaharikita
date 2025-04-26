@@ -1,0 +1,146 @@
+---
+import { IconChat } from "@components/Icons";
+import voucherData from "@assets/data-voucher.json";
+
+const { data } = Astro.props;
+---
+
+<div class="bg-white mt-4 p-4 rounded-md space-y-4 max-w-sm">
+  <div class="text-sm space-y-2">
+    <div>
+      <label for="voucher">Punya kode voucher?</label>
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      <input
+        type="text"
+        id="voucher"
+        class="pl-2 p-1 border rounded-md placeholder:text-gray-400"
+        placeholder="Masukkan kode voucher"
+      />
+      <button
+        id="check-voucher-button"
+        class="py-1 px-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-md font-medium w-fit ml-auto"
+      >
+        Cek Voucher
+      </button>
+    </div>
+
+    <div
+      id="voucher-message"
+      class="hidden flex justify-between items-start gap-2 text-sm p-2 rounded-md w-full"
+    >
+      <span id="voucher-text"></span>
+      <button
+        id="close-voucher-message"
+        class="text-gray-600 hover:text-black text-sm font-semibold hover:cursor-pointer"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+
+  <button
+    id="booking-button"
+    class="flex items-center gap-x-1 mt-8 py-2 px-4 bg-deep-blue hover:bg-deep-blue/80 text-white rounded-full font-semibold w-fit mx-auto"
+  >
+    <IconChat /> Pesan Sekarang
+  </button>
+</div>
+
+<script define:vars={{ voucherData, title: data.title }}>
+  const voucherInput = document.getElementById("voucher");
+  const voucherMessage = document.getElementById("voucher-message");
+  const voucherText = document.getElementById("voucher-text");
+  const closeVoucherButton = document.getElementById("close-voucher-message");
+  const bookingButton = document.getElementById("booking-button");
+  const checkVoucherButton = document.getElementById("check-voucher-button");
+
+  const tripTitle = title;
+  const baseWaUrl = `https://wa.me/6281384913190/?text=${encodeURIComponent(
+    `Hi Ceria Hari Kita!\nSaya mau tanya tentang\n\n${tripTitle}\n\nNama :\n\nTerima kasih`
+  )}`;
+
+  let isVoucherValid = false;
+  let validVoucherCode = "";
+
+  function showMessage(message, isSuccess) {
+    voucherText.textContent = message;
+    voucherMessage.classList.remove("hidden");
+
+    voucherMessage.className = `flex justify-between items-start gap-2 text-sm p-2 rounded-md max-w-[328px] ml-auto ${
+      isSuccess ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+    }`;
+  }
+
+  function checkVoucher() {
+    const voucherCode = voucherInput.value.trim();
+
+    if (!voucherCode) {
+      showMessage("Silakan masukkan kode voucher terlebih dahulu", false);
+      isVoucherValid = false;
+      return;
+    }
+
+    const foundVoucher = voucherData.find((v) => v.code === voucherCode);
+
+    if (foundVoucher) {
+      showMessage(
+        `Voucher "${voucherCode}" ditemukan! Dapatkan diskon ${foundVoucher.discount}%`,
+        true
+      );
+      isVoucherValid = true;
+      validVoucherCode = voucherCode;
+    } else {
+      showMessage("Kode voucher tidak ditemukan", false);
+      isVoucherValid = false;
+      validVoucherCode = "";
+    }
+  }
+
+  checkVoucherButton.addEventListener("click", checkVoucher);
+
+  bookingButton.addEventListener("click", () => {
+    const voucherCode = voucherInput.value.trim();
+
+    if (!voucherCode) {
+      window.open(baseWaUrl, "_blank");
+      return;
+    }
+
+    if (voucherCode && voucherCode !== validVoucherCode) {
+      checkVoucher();
+
+      if (!isVoucherValid) {
+        return;
+      }
+    }
+
+    const finalUrl =
+      isVoucherValid && validVoucherCode
+        ? `https://wa.me/6281384913190/?text=${encodeURIComponent(
+            `Hi Ceria Hari Kita!\nSaya mau tanya tentang\n\n${tripTitle}\n\nNama :\nKode Voucher : ${validVoucherCode}\n\nTerima kasih`
+          )}`
+        : `https://wa.me/6281384913190/?text=${encodeURIComponent(
+            `Hi Ceria Hari Kita!\nSaya mau tanya tentang\n\n${tripTitle}\n\nNama :\n\nTerima kasih`
+          )}`;
+
+    window.open(finalUrl, "_blank");
+  });
+
+  voucherInput.addEventListener("input", () => {
+    voucherMessage.classList.add("hidden");
+    isVoucherValid = false;
+    validVoucherCode = "";
+  });
+
+  voucherInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      checkVoucher();
+    }
+  });
+
+  closeVoucherButton.addEventListener("click", () => {
+    voucherMessage.classList.add("hidden");
+  });
+</script>

@@ -1,0 +1,61 @@
+{
+  "title": "Yogyakarta One Day Trip",
+  "slug": "yogya-oneday",
+  "jenistrip": "Private",
+  "category": "domestik",
+  "ispromo": false,
+  "meetingpoint": ["Yogyakarta (Penginapan/stasiun/terminal/bandara)"],
+  "descriptions": [
+    {
+      "text": ""
+    }
+  ],
+  "images": [{ "url": "bromo-midnight-trip/bromo-main.jpg" }],
+  "itineraries": [
+    {
+      "items": [
+        {
+          "time": "08.00",
+          "details": "Penjemputan peserta"
+        },
+        {
+          "time": "10.00",
+          "details": "Wisata coban/air terjun"
+        },
+        {
+          "time": "13.00",
+          "details": "Wisata Hutan Pinus"
+        },
+        {
+          "time": "15.00",
+          "details": "Wisata Pantai Parangtritis"
+        },
+        {
+          "time": "17.00",
+          "details": "Wisata Obelix"
+        },
+        {
+          "time": "19.00",
+          "details": "Kembali menuju ke meeting point"
+        }
+      ],
+      "title": "Yogyakarta One Day Trip"
+    }
+  ],
+  "price": ["320", "330", "380", "460", "599"],
+  "fasilitas": {
+    "include": [
+      "Transportasi PP",
+      "Tiket masuk wisata",
+      "Air Mineral 1x",
+      "Tol, BBM & Parkir",
+      "Driver as guide"
+    ],
+    "exclude": [
+      "Makan selama trip",
+      "Keperluan Pribadi",
+      "Sewa kuda / jaket di Bromo",
+      "Dokumentasi foto (+ IDR250.000)"
+    ]
+  }
+}

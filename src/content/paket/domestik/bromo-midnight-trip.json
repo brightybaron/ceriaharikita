@@ -1,0 +1,79 @@
+{
+  "title": "Bromo Midnight Trip",
+  "slug": "bromo-midnight-trip",
+  "jenistrip": "Private",
+  "category": "domestik",
+  "ispromo": false,
+  "meetingpoint": [
+    "Lamongan",
+    "Gresik",
+    "Surabaya",
+    "Malang (Stasiun/Hotel/Penginapan)"
+  ],
+  "descriptions": [
+    {
+      "text": ""
+    }
+  ],
+  "images": [{ "url": "bromo-midnight-trip/bromo-main.jpg" }],
+  "itineraries": [
+    {
+      "items": [
+        {
+          "time": "22.00",
+          "details": "Penjemputan peserta"
+        },
+        {
+          "time": "02.00",
+          "details": "Perjalanan menuju base camp jeep"
+        },
+        {
+          "time": "03.00",
+          "details": "Sunrise Point Pananjakan"
+        },
+        {
+          "time": "06.00",
+          "details": "Bukit Widodaren"
+        },
+        {
+          "time": "07.00",
+          "details": "Kawah Bromo"
+        },
+        {
+          "time": "09.00",
+          "details": "Lautan Pasir"
+        },
+        {
+          "time": "09.30",
+          "details": "Bukit Teletubis"
+        },
+        {
+          "time": "10.30",
+          "details": "Kembali ke Base Camp"
+        },
+        {
+          "time": "11.30",
+          "details": "Mengantar ke titik point dan program selesai"
+        }
+      ],
+      "title": "Bromo Midnight Trip"
+    }
+  ],
+  "price": ["380", "465", "570", "720", "1140"],
+  "fasilitas": {
+    "include": [
+      "Transportasi PP",
+      "Tol, BBM & Parkir",
+      "Jip Bromo",
+      "Tiket masuk TNBTS",
+      "Air Mineral 1x",
+      "Driver as guide"
+    ],
+    "exclude": [
+      "Makan selama trip",
+      "Keperluan Pribadi",
+      "Sewa kuda / jaket di Bromo",
+      "Dokumentasi foto (+ IDR250.000)"
+    ]
+  }
+}

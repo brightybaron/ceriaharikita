@@ -1,0 +1,28 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sarina&display=swap"); */
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sarina";
+  src: url("/fonts/Sarina/Sarina-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-sarina: "Sarina", san-serif;
+  --color-deep-blue: #1b365d;
+  --color-orange-jreng: #ff8c00;
+  --color-soft-turquoise: #fcb51b;
+  --color-sandy-beige: #f5deb3;
+}

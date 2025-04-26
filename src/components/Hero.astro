@@ -1,0 +1,77 @@
+---
+import TypingText from "@components/TypingText.astro";
+import { Image } from "astro:assets";
+
+const { backgroundImages, title, subtitle, description } = Astro.props;
+---
+
+<section class="relative h-dvh w-full scroll-mt-24">
+  <div
+    class="carousel-container absolute inset-0 w-full h-screen overflow-hidden"
+  >
+    {
+      backgroundImages.map((image: any, index: any) => (
+        <div
+          class={`carousel-slide absolute inset-0 w-full h-screen bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${index === 0 ? "opacity-100" : "opacity-0"}`}
+          style={`background-image: url(${image})`}
+          data-index={index}
+        >
+          <div class="absolute inset-0 bg-black/15" />
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col justify-center h-full max-w-xl">
+      <div class="space-y-6 text-gray-100">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          {title}
+        </h1>
+        <p class="text-base md:text-lg">
+          {subtitle}
+        </p>
+        <div class="inline-flex items-center text-base md:text-lg h-1">
+          <TypingText typedText={description} />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute -bottom-28 w-full px-4">
+    <div class="max-w-5xl mx-auto bg-white p-4 rounded-2xl shadow-xl">
+      <div class="text-center space-y-4">
+        <p class="font-bold sm:text-2xl text-xl">Our Services</p>
+        <p class="sm:text-base text-sm">
+          Liburan lebih jadi mudah bersama Ceria Hari Kita Tour & Travel
+        </p>
+      </div>
+
+      <slot />
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll(".carousel-slide");
+  const slideCount = slides.length;
+  let currentSlide = 0;
+
+  function nextSlide() {
+    slides[currentSlide].classList.remove("opacity-100");
+    slides[currentSlide].classList.add("opacity-0");
+
+    currentSlide = (currentSlide + 1) % slideCount;
+
+    slides[currentSlide].classList.remove("opacity-0");
+    slides[currentSlide].classList.add("opacity-100");
+  }
+
+  setInterval(nextSlide, 5000);
+</script>
+
+<style>
+  .carousel-slide {
+    transition: opacity 1s ease;
+  }
+</style>

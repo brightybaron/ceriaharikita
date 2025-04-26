@@ -1,0 +1,232 @@
+---
+import Accordion from "@components/Accordion";
+import GalleryWrapper from "@components/GalleryWrapper";
+import { IconClock4, IconPerson } from "@components/Icons";
+import NavTab from "@components/Navtab";
+import CTA from "@components/CTA.astro";
+import PaginatedList from "@components/Pagination";
+import Pagination from "@components/Pagination";
+
+const tabs = [
+  { name: "overview" },
+  { name: "itinerary" },
+  { name: "harga" },
+  { name: "fasilitas" },
+];
+
+const { data } = Astro.props;
+---
+
+<section class="max-w-7xl mx-auto lg:px-8 sm:px-6 px-4">
+  <h1 class="sm:text-4xl text-3xl font-bold mb-4">{data.title}</h1>
+  <div class="flex flex-wrap gap-4 text-sm font-medium text-gray-600">
+    <div class="flex items-center gap-x-1">
+      <IconClock4 />
+      {data.itineraries.length} Hari {
+        data.itineraries.length - 1 === 0
+          ? ""
+          : `${data.itineraries.length - 1} Malam`
+      }
+    </div>
+    <div class="flex items-center gap-x-1">
+      <IconPerson />
+      {data.jenistrip} Trip
+    </div>
+  </div>
+</section>
+
+<section class="max-w-7xl mx-auto lg:px-8 sm:px-6 px-4 mt-8">
+  <GalleryWrapper images={data.images} bucketUrl={"/images"} client:load />
+</section>
+
+<section
+  class="max-w-7xl mx-auto lg:px-8 sm:px-6 px-4 mt-8 flex flex-wrap gap-4"
+>
+  <div class="grow shrink basis-auto lg:w-8/12 w-full">
+    <div class="grid md:grid-cols-4 grid-cols-1 sm:gap-3 gap-0" id="nav-tab">
+      <NavTab client:load tabs={tabs} />
+    </div>
+    <!-- Tabs -->
+    <div class="mt-4 border-t border-black py-4 min-h-64">
+      <!-- Tab Content -->
+      <div id={tabs[0].name} class="tab-pane active">
+        <table class="w-full">
+          <tbody>
+            <tr class="">
+              <td
+                class="text-sm sm:text-base p-2 border border-gray-400 font-semibold w-1/4"
+                >Meeting Point</td
+              >
+              <td class="text-sm sm:text-base p-2 border border-gray-400">
+                {
+                  data.meetingpoint.length === 1
+                    ? data.meetingpoint[0]
+                    : data.meetingpoint.map((item: string) => (
+                        <li class="list-inside">{item}</li>
+                      ))
+                }
+              </td>
+            </tr>
+            <tr class="">
+              <td
+                class="text-sm sm:text-base p-2 border border-gray-400 font-semibold"
+                >Waktu Mulai</td
+              >
+              <td class="text-sm sm:text-base p-2 border border-gray-400">
+                {
+                  data.itineraries.length > 1
+                    ? `Hari 1, ${data.itineraries[0].items[0].time}`
+                    : data.itineraries[0].items[0].time
+                } WIB
+              </td>
+            </tr>
+            <tr class="">
+              <td
+                class="text-sm sm:text-base p-2 border border-gray-400 font-semibold"
+                >Waktu Selesai</td
+              >
+              <td class="text-sm sm:text-base p-2 border border-gray-400">
+                {
+                  data.itineraries.length > 1
+                    ? `Hari ${data.itineraries.length},`
+                    : ""
+                }
+                {
+                  data.itineraries[data.itineraries.length - 1].items[
+                    data.itineraries[data.itineraries.length - 1].items.length -
+                      1
+                  ].time
+                } WIB
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="mt-4">
+          {data.descriptions.map((desc: any) => <p>{desc.text}</p>)}
+        </div>
+      </div>
+
+      <div id={tabs[1].name} class="tab-pane">
+        <div class="space-y-2">
+          <Accordion data={data.itineraries} isFaq="" client:load />
+          <p class="sm:text-sm text-xs text-end italic mt-4">
+            <strong>*</strong> Hanya sebagai acuan dasar, dalam pelaksanaanya menyesuaikan
+            dengan kondisi yang ada.
+          </p>
+        </div>
+      </div>
+
+      <div id={tabs[2].name} class="tab-pane">
+        <div class="overflow-x-auto">
+          <table class="w-full mb-4">
+            <thead>
+              <tr class="bg-deep-blue text-white text-center">
+                <th class="px-4 py-2 font-semibold border">Jumlah Peserta</th>
+                <th class="px-4 py-2 font-semibold border">Harga per pax</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                data.price
+                  .slice()
+                  .sort((a: any, b: any) => a - b)
+                  .map((item: any, index: number) => {
+                    const pax = data.price.length + 1 - index;
+                    return (
+                      <tr class="text-center">
+                        <td class="px-4 py-2 border">{pax}</td>
+                        <td class="px-4 py-2 border font-medium">
+                          Rp. {`${Number(item).toLocaleString("id-ID")}.000`}
+                        </td>
+                      </tr>
+                    );
+                  })
+              }
+            </tbody>
+          </table>
+          <p class="sm:text-sm text-xs italic">
+            {
+              `*Lebih dari ${data.price.length + 1} orang/grup besar, silakan hubungi kami.`
+            }
+          </p>
+        </div>
+      </div>
+
+      <div id={tabs[3].name} class="tab-pane">
+        <div class="grid sm:grid-cols-2 grid-cols-1 gap-x-4 gap-y-8">
+          <div class="col-span-1 border border-deep-blue/50">
+            <div>
+              <p
+                class="font-semibold mb-2 w-full text-center bg-deep-blue text-white py-2 border border-white"
+              >
+                Included
+              </p>
+            </div>
+            <Pagination client:load data={data.fasilitas.include} />
+            <!-- <ul class="sm:p-4 p-2 space-y-1 list-disc list-inside">
+              {
+                data.fasilitas.include.map((item: string) => (
+                  <li class="sm:text-base text-sm">{item}</li>
+                ))
+              }
+            </ul> -->
+          </div>
+          <div class="col-span-1 ring-1 ring-deep-blue/50">
+            <p
+              class="font-semibold mb-2 w-full text-center bg-deep-blue text-white py-2 border border-white"
+            >
+              Excluded
+            </p>
+            <ul class="sm:p-4 p-2 space-y-1 list-disc list-inside">
+              {
+                data.fasilitas.exclude.map((item: string) => (
+                  <li class="sm:text-base text-sm">{item}</li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grow shrink basis-auto">
+    <div
+      class="h-auto bg-sandy-beige py-4 border-y-2 border-black rounded text-center"
+    >
+      <span class="text-sm">Mulai dari : </span>
+      <span class="font-semibold"
+        >Rp. {`${Number(data.price[0]).toLocaleString("id-ID")}.000`} / pax</span
+      >
+    </div>
+    <!-- CTA -->
+    <CTA data={data} />
+  </div>
+</section>
+
+<style>
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active {
+    display: block;
+  }
+</style>
+
+<script>
+  function onTabClick(event: any) {
+    let activeTabs = document.querySelectorAll(".active");
+    activeTabs.forEach(function (tab) {
+      tab.className = tab.className.replace("active", "");
+    });
+    event.target.parentElement.className += " active";
+    let element = document.getElementById(event.target.id.split("-")[0]);
+    if (element) {
+      element.className += " active";
+    }
+  }
+
+  const element: any = document.getElementById("nav-tab");
+  element.addEventListener("click", onTabClick, false);
+</script>

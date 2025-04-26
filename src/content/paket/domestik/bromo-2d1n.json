@@ -1,0 +1,110 @@
+{
+  "title": "Bromo 2 Days 1 Night",
+  "slug": "bromo-2d1n",
+  "jenistrip": "Private",
+  "category": "domestik",
+  "ispromo": false,
+  "meetingpoint": [
+    "Lamongan",
+    "Gresik",
+    "Surabaya",
+    "Malang (Stasiun/Hotel/Penginapan)"
+  ],
+  "descriptions": [
+    {
+      "text": ""
+    }
+  ],
+  "images": [{ "url": "bromo-midnight-trip/bromo-main.jpg" }],
+  "itineraries": [
+    {
+      "items": [
+        {
+          "time": "06.00",
+          "details": "Penjemputan peserta"
+        },
+        {
+          "time": "10.00",
+          "details": "Wisata coban/air terjun"
+        },
+        {
+          "time": "12.00",
+          "details": "Wisata coban/air terjun"
+        },
+        {
+          "time": "14.00",
+          "details": "Check-in penginapan/villa"
+        },
+        {
+          "time": "17.00",
+          "details": "Taman Edelweiss"
+        },
+        {
+          "time": "18.30",
+          "details": "Free time"
+        }
+      ],
+      "title": "Explore Pasuruan"
+    },
+    {
+      "items": [
+        {
+          "time": "22.00",
+          "details": "Penjemputan peserta"
+        },
+        {
+          "time": "02.00",
+          "details": "Perjalanan menuju base camp jeep"
+        },
+        {
+          "time": "03.00",
+          "details": "Sunrise Point Pananjakan"
+        },
+        {
+          "time": "06.00",
+          "details": "Bukit Widodaren"
+        },
+        {
+          "time": "07.00",
+          "details": "Kawah Bromo"
+        },
+        {
+          "time": "09.00",
+          "details": "Lautan Pasir"
+        },
+        {
+          "time": "09.30",
+          "details": "Bukit Teletubis"
+        },
+        {
+          "time": "10.30",
+          "details": "Kembali ke Base Camp"
+        },
+        {
+          "time": "11.30",
+          "details": "Mengantar ke titik point dan program selesai"
+        }
+      ],
+      "title": "Bromo Midnight Trip"
+    }
+  ],
+  "price": ["730", "799", "910", "1100", "1480"],
+  "fasilitas": {
+    "include": [
+      "Transportasi PP",
+      "Tiket masuk TNBTS",
+      "Air Terjun",
+      "Jip Bromo",
+      "Penginapan/villa",
+      "Makan",
+      "Air Mineral 2x",
+      "Tol, BBM & Parkir",
+      "Driver as guide"
+    ],
+    "exclude": [
+      "Keperluan Pribadi",
+      "Sewa kuda / jaket di Bromo",
+      "Dokumentasi foto (+ IDR250.000)"
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "title": "Yogyakarta 2 Days 1 Night Trip",
+  "slug": "yogya-2d1n",
+  "jenistrip": "Private",
+  "category": "domestik",
+  "ispromo": false,
+  "meetingpoint": ["Yogyakarta (Penginapan/stasiun/terminal/bandara)"],
+  "descriptions": [
+    {
+      "text": ""
+    }
+  ],
+  "images": [{ "url": "bromo-midnight-trip/bromo-main.jpg" }],
+  "itineraries": [
+    {
+      "items": [
+        {
+          "time": "08.00",
+          "details": "Penjemputan peserta"
+        },
+        {
+          "time": "10.00",
+          "details": "Jeep Merapi Lava Tour"
+        },
+        {
+          "time": "13.00",
+          "details": "Wisata Petik Salak"
+        },
+        {
+          "time": "15.00",
+          "details": "Wisata Agro Tourism Bhumi Merapi"
+        },
+        {
+          "time": "18.00",
+          "details": "Menuju Hotel/Penginapan"
+        },
+        {
+          "time": "19.00",
+          "details": "Free time"
+        }
+      ],
+      "title": "Yogyakarta Utara"
+    },
+    {
+      "items": [
+        {
+          "time": "08.00",
+          "details": "Penjemputan peserta"
+        },
+        {
+          "time": "10.00",
+          "details": "Wisata Studio Alam Gamplong"
+        },
+        {
+          "time": "13.00",
+          "details": "Wisata Gumuk Pasir"
+        },
+        {
+          "time": "15.00",
+          "details": "Wisata Pantai Parangtritis"
+        },
+        {
+          "time": "17.00",
+          "details": "Wisata Obelix Hills"
+        },
+        {
+          "time": "19.00",
+          "details": "Kembali meeting point"
+        }
+      ],
+      "title": "Yogyakarta Selatan"
+    }
+  ],
+  "price": ["929", "975", "1020", "1160", "1470"],
+  "fasilitas": {
+    "include": [
+      "Transportasi PP",
+      "Tiket masuk wisata",
+      "Air Mineral 2x",
+      "Tol, BBM & Parkir",
+      "Driver as guide",
+      "Penginapan/hotel"
+    ],
+    "exclude": [
+      "Makan selama trip",
+      "Keperluan Pribadi",
+      "Sewa kuda / jaket di Bromo",
+      "Dokumentasi foto (+ IDR250.000)"
+    ]
+  }
+}
