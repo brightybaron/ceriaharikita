@@ -1,7 +1,7 @@
 ---
 import { IconClock4, IconPeople } from "@components/Icons";
 
-const { image, title, slug, jenistrip, durasi, price } = Astro.props;
+const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
 ---
 
 <>
@@ -20,7 +20,7 @@ const { image, title, slug, jenistrip, durasi, price } = Astro.props;
         </div>
       </div>
       <div
-        class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 rounded-bl-md"
+        class={`absolute top-0 right-0 bg-red-500 text-white px-2 py-1 rounded-bl-md ${ispromo ? "block" : "hidden"}`}
       >
         <p class="text-sm sm:text-xs font-semibold">ON SALE</p>
       </div>
