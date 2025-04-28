@@ -1,6 +1,12 @@
 ---
 import "@styles/global.css";
 import Navbar from "@components/Navbar";
+import {
+  IconChat,
+  IconFacebook,
+  IconInstagram,
+  IconMusic,
+} from "@components/Icons";
 
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === "/" ? true : false;
@@ -65,35 +71,72 @@ const fullCanonical = `${siteUrl}${canonical}`;
     <main class="flex-grow">
       <slot />
     </main>
-    <footer class="mt-16 px-4 sm:px-6 lg:px-12 py-8 bg-deep-blue text-gray-200">
+    <footer
+      class="mt-16 px-4 sm:px-6 lg:px-12 py-8 bg-deep-blue text-gray-200 border-t-8 border-white border-double"
+    >
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-y-0 gap-y-8"
       >
         <div class="gap-y-2">
           <h3 class="text-lg font-bold underline mb-2">For Travellers</h3>
-          <div class="flex flex-col text-sm gap-y-2">
-            <a href="/about">Why Us?</a>
-            <a href="/faq">FAQ</a>
-            <a href="/faq#terms-conditions">Terms & Conditions</a>
-            <a href="https://www.instagram.com/ceriaharikita/" target="_blank">
-              Our Gallery
-            </a>
+          <div class="text-sm space-y-2 font-medium list-none">
+            <p><a href="/about">Why Us?</a></p>
+            <p><a href="/faq">FAQ</a></p>
+            <p><a href="/faq#tnc">Terms & Conditions</a></p>
+            <p>
+              <a
+                href="https://www.instagram.com/ceriaharikita/"
+                target="_blank"
+              >
+                Our Gallery
+              </a>
+            </p>
           </div>
         </div>
         <div class="flex flex-col gap-y-2">
           <h3 class="text-lg font-bold underline mb-2">Our Office</h3>
-          <p class="text-sm">
-            Perumahan Graha Indah Blok P/2 Tikung, Lamongan 62218
-          </p>
-          <p class="text-sm">Phone: +62 813 8491 3190</p>
-          <p class="text-sm">Email: ceritatravelkita@gmail.com</p>
+          <div class="text-sm space-y-2 font-medium">
+            <p>Perumahan Graha Indah Blok P/2 Tikung, Lamongan 62218</p>
+            <p>Phone: +62 813 8491 3190</p>
+            <p>Email: ceritatravelkita@gmail.com</p>
+          </div>
         </div>
       </div>
-      <div class="mt-8">
-        <p class="text-sm text-center">
+      <div class="mt-8 space-y-2">
+        <p class="text-sm text-center font-medium">
           &copy; {new Date().getFullYear()} Ceria Hari Kita | All Rights Reserved.
         </p>
-        <p class="text-xs text-center">by ardipanda54</p>
+        <p class="text-xs text-center">made by Tim Media Ceria Hari Kita</p>
+      </div>
+      <div class="flex justify-center my-4 gap-x-4">
+        <a
+          href="https://www.instagram.com/ceriaharikita/"
+          target="_blank"
+          class="py-2 px-2 border-2 rounded-md shadow-[2px_2px_3px_rgba(153,161,175,0.75)]"
+        >
+          <IconInstagram />
+        </a>
+        <a
+          href="https://www.facebook.com/ceriaharikita/"
+          target="_blank"
+          class="py-2 px-2 border-2 rounded-md shadow-[2px_2px_3px_rgba(153,161,175,0.75)]"
+        >
+          <IconFacebook />
+        </a>
+        <a
+          href="https://www.tiktok.com/@ceriaharikita"
+          target="_blank"
+          class="py-2 px-2 border-2 rounded-md shadow-[2px_2px_3px_rgba(153,161,175,0.75)]"
+        >
+          <IconMusic />
+        </a>
+        <a
+          href="https://wa.me/6281384913190/?text=Hi%20Ceria%20Hari%20Kita!%20Saya%20mau%20tanya%20tentang"
+          target="_blank"
+          class="py-2 px-2 border-2 rounded-md shadow-[2px_2px_3px_rgba(153,161,175,0.75)]"
+        >
+          <IconChat />
+        </a>
       </div>
     </footer>
   </body>

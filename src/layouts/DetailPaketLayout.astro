@@ -4,7 +4,6 @@ import GalleryWrapper from "@components/GalleryWrapper";
 import { IconClock4, IconPerson } from "@components/Icons";
 import NavTab from "@components/Navtab";
 import CTA from "@components/CTA.astro";
-import PaginatedList from "@components/Pagination";
 import Pagination from "@components/Pagination";
 
 const tabs = [
@@ -18,9 +17,9 @@ const { data } = Astro.props;
 ---
 
 <section class="max-w-7xl mx-auto lg:px-8 sm:px-6 px-4">
-  <h1 class="sm:text-4xl text-3xl font-bold mb-4">{data.title}</h1>
-  <div class="flex flex-wrap gap-4 text-sm font-medium text-gray-600">
-    <div class="flex items-center gap-x-1">
+  <h1 class="sm:text-4xl text-2xl font-bold">{data.title}</h1>
+  <div class="flex flex-wrap gap-4 text-sm font-medium text-gray-600 mt-2">
+    <div class="flex items-center gap-x-1 px-2 py-1">
       <IconClock4 />
       {data.itineraries.length} Hari {
         data.itineraries.length - 1 === 0
@@ -28,14 +27,20 @@ const { data } = Astro.props;
           : `${data.itineraries.length - 1} Malam`
       }
     </div>
-    <div class="flex items-center gap-x-1">
+    <div class="flex items-center gap-x-1 px-2 py-1">
       <IconPerson />
       {data.jenistrip} Trip
     </div>
+    {data.ispromo === true && (
+    <div class="bg-red-500 text-white px-2 py-1 ml-auto sm:ml-0 items items-center">
+      <span class="text-xs font-semibold">ON SALE</span>
+    </div>  
+    )}
+    
   </div>
 </section>
 
-<section class="max-w-7xl mx-auto lg:px-8 sm:px-6 px-4 mt-8">
+<section class="max-w-7xl mx-auto lg:px-8 sm:px-6 px-4 mt-4">
   <GalleryWrapper images={data.images} bucketUrl={"/images"} client:load />
 </section>
 
