@@ -58,11 +58,16 @@ const { data } = Astro.props;
               >
               <td class="p-2 border border-gray-400">
                 {
-                  data.meetingpoint.length === 1
-                    ? data.meetingpoint[0]
-                    : data.meetingpoint.map((item: string) => (
+                  data.meetingpoint.length === 1 ? (
+                    data.meetingpoint[0]
+                  ) : (
+                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                      {data.meetingpoint.map((item: string) => (
                         <li class="list-inside">{item}</li>
-                      ))
+                      ))}
+                    </div>
+                    <p class="text-sm italic mt-4">*Sesuai permintaan (misal hotel/stasiun/bandara/terminal)</p>
+                  )
                 }
               </td>
             </tr>
@@ -73,7 +78,7 @@ const { data } = Astro.props;
               <td class="p-2 border border-gray-400">
                 {
                   data.itineraries.length > 1
-                    ? `Hari 1, ${data.itineraries[0].items[0].time}`
+                    ? <><span class="font-medium">Hari 1</span>, {data.itineraries[0].items[0].time}</>
                     : data.itineraries[0].items[0].time
                 } WIB
               </td>
@@ -85,7 +90,7 @@ const { data } = Astro.props;
               <td class="p-2 border border-gray-400">
                 {
                   data.itineraries.length > 1
-                    ? `Hari ${data.itineraries.length},`
+                    ? <><span class="font-medium">Hari {data.itineraries.length}</span>, </>
                     : ""
                 }
                 {
@@ -100,7 +105,11 @@ const { data } = Astro.props;
         </table>
 
         <div class="mt-4">
-          {data.descriptions.map((desc: any) => <p>{desc.text}</p>)}
+          {
+            data.descriptions.map((desc: any) => (
+              <p class="indent-8">{desc.text}</p>
+            ))
+          }
         </div>
       </div>
 
@@ -144,8 +153,12 @@ const { data } = Astro.props;
           </table>
           <p class="text-sm italic">
             {
+              data.price.length === 1
+                ? ""
+                : `*Lebih dari ${data.price.length + 1} orang/grup besar, silakan hubungi kami.`}
+            <!-- {
               `*Lebih dari ${data.price.length + 1} orang/grup besar, silakan hubungi kami.`
-            }
+            } -->
           </p>
         </div>
       </div>
@@ -187,7 +200,7 @@ const { data } = Astro.props;
     <div
       class="h-auto bg-sandy-beige py-4 border-y-2 border-black rounded text-center"
     >
-      <span class="text-sm font-medium italic">Mulai dari : </span>
+      <span class="text-sm font-medium italic">{data.jenistrip === "Open" ? "Fix Price : " : data.price.length === 1 ? "Fix price : " : "Mulai dari : "}</span>
       <span class="font-bold text-lg"
         >Rp. {`${Number(data.price[0]).toLocaleString("id-ID")}.000`} / pax</span
       >

@@ -4,12 +4,7 @@
   "jenistrip": "Private",
   "category": "domestik",
   "ispromo": false,
-  "meetingpoint": [
-    "Lamongan",
-    "Gresik",
-    "Surabaya",
-    "Malang (Stasiun/Hotel/Penginapan)"
-  ],
+  "meetingpoint": ["Lamongan", "Gresik", "Surabaya", "Malang"],
   "descriptions": [
     {
       "text": ""

@@ -107,7 +107,13 @@ const head = {
       <p>Dapatkan paket liburan terbaik kami</p>
     </div>
     <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 mt-8">
-      {cardsData.slice(0, 4).map((card) => <Card2 {...card} />)}
+      <!-- {cardsData.sort().slice(0, 4).map((card) => <Card2 {...card} />)} -->
+      {
+        cardsData
+          .sort((a, b) => a.title.localeCompare(b.title)) // sorting berdasar title ascending
+          .slice(0, 4)
+          .map((card) => <Card2 {...card} />)
+      }
     </div>
   </section>
 
