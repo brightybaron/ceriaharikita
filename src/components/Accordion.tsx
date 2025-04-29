@@ -20,21 +20,21 @@ const Accordion = ({ data, faqPage }: { data: any; faqPage: boolean }) => {
         >
           <button
             onClick={() => toggleDay(item.title)}
-            className={`w-full px-4 py-3 flex items-center justify-between transition-colors duration-200 ${
+            className={`w-full px-1 sm:px-3 py-3 flex items-center transition-colors duration-200 ${
               openDays[item.title]
                 ? "bg-deep-blue text-white"
                 : "bg-gray-50 text-black"
             }`}
           >
-            <div className="flex items-center">
+            <div className="flex items-center gap-x-2">
               <span
-                className={`text-lg ${
+                className={`min-w-11 ${
                   openDays[item.title] ? "text-sandy-beige" : "text-deep-blue"
                 } font-semibold ${faqPage ? "hidden" : ""}`}
               >
                 Day {index + 1}
               </span>
-              <span className="ml-2 font-medium">
+              <span className="font-medium text-left">
                 {item.title
                   .split(/(\([^)]*\))/)
                   .map((part: string, index: number) =>
@@ -48,7 +48,9 @@ const Accordion = ({ data, faqPage }: { data: any; faqPage: boolean }) => {
                   )}
               </span>
             </div>
-            {openDays[item.title] ? <IconChevronUp /> : <IconChevronDown />}
+            <div className="ml-auto">
+              {openDays[item.title] ? <IconChevronUp /> : <IconChevronDown />}
+            </div>
           </button>
           <div
             className={`
