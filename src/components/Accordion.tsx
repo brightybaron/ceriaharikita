@@ -86,12 +86,14 @@ const Accordion = ({ data, faqPage }: { data: any; faqPage: boolean }) => {
                       </td>
                       <td>
                         {item.details
-                          .split(/(exclude)/gi)
-                          .map((part: string, i: number) =>
-                            part.toLowerCase() === "exclude" ? (
-                              <b key={i}>{part}</b>
+                          .split(/(\([^)]*\))/)
+                          .map((part: string, index: number) =>
+                            part.startsWith("(") && part.endsWith(")") ? (
+                              <span key={index} className="font-semibold">
+                                {part}
+                              </span>
                             ) : (
-                              part
+                              <span key={index}>{part}</span>
                             )
                           )}
                       </td>
