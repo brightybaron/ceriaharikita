@@ -1,5 +1,5 @@
 ---
-import { IconClock4, IconPeople } from "@components/Icons";
+import { IconClock4, IconPeople, IconPerson } from "@components/Icons";
 
 const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
 ---
@@ -25,7 +25,7 @@ const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
         <p class="text-sm sm:text-xs font-semibold">ON SALE</p>
       </div>
       <div
-        class="absolute top-48 group-hover:top-4 transition-all duration-300 left-0 w-full bg-white group-hover:bg-white/95 min-h-16 h-full p-2"
+        class="absolute top-48 group-hover:top-4 transition-all duration-300 left-0 w-full bg-white group-hover:bg-white/95 min-h-16 h-full px-2 pt-1"
       >
         <div class="relative px-2">
           <div class="absolute top-1/5 right-0 px-2 group-hover:hidden">
@@ -37,7 +37,7 @@ const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
             </p>
             <p class="text-end text-sm leading-2.5">/ pax</p>
           </div>
-          <div class="relative mt-1">
+          <div class="relative">
             <h3 class="font-semibold sm:font-bold mb-2 text-gray-800 leading-5">
               {title}
             </h3>
@@ -45,7 +45,7 @@ const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
               class="flex items-center text-sm text-slate-700 font-medium gap-x-1"
             >
               <span>
-                <IconPeople />
+                {jenistrip === "Private" ? <IconPerson /> : <IconPeople />}
               </span>
               {jenistrip} Trip
             </div>
@@ -57,7 +57,7 @@ const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
               </span>
               {durasi} Hari
             </div>
-            <div class="mt-8">
+            <div class="mt-10">
               <p class="text-sm leading-3">
                 {price.length === 0 ? "Fix price" : "Start from"}
               </p>

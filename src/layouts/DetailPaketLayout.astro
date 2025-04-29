@@ -1,7 +1,7 @@
 ---
 import Accordion from "@components/Accordion";
 import GalleryWrapper from "@components/GalleryWrapper";
-import { IconClock4, IconPerson } from "@components/Icons";
+import { IconClock4, IconPeople, IconPerson } from "@components/Icons";
 import NavTab from "@components/Navtab";
 import CTA from "@components/CTA.astro";
 import Pagination from "@components/Pagination";
@@ -28,7 +28,7 @@ const { data } = Astro.props;
       }
     </div>
     <div class="flex items-center gap-x-1 px-2 py-1">
-      <IconPerson />
+      {data.jenistrip === "Private" ? <IconPerson />  : <IconPeople/>}      
       {data.jenistrip} Trip
     </div>
     {data.ispromo === true && (
@@ -146,7 +146,7 @@ const { data } = Astro.props;
                     const pax = data.price.length + 1 - index;
                     return (
                       <tr class="text-center">
-                        <td class="px-4 py-2 border font-medium">{pax}</td>
+                        <td class="px-4 py-2 border font-medium">{data.price.length === 1 ? data.price.length : pax}</td>
                         <td class="px-4 py-2 border font-medium">
                           Rp. {`${Number(item).toLocaleString("id-ID")}.000`}
                         </td>
@@ -193,9 +193,11 @@ const { data } = Astro.props;
             >
               Excluded
             </p>
-            <ul class="sm:p-4 p-2 space-y-1 list-disc list-inside">
-              {data.fasilitas.exclude.map((item: string) => <li>{item}</li>)}
-            </ul>
+            <div class="px-2">
+              <ul class="p-4 space-y-1 list-disc">
+                {data.fasilitas.exclude.map((item: string) => <li>{item}</li>)}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

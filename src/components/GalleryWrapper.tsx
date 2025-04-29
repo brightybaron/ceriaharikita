@@ -31,7 +31,7 @@ const GalleryWrapper = ({ images, bucketUrl }: any) => {
         <img
           src={imageUrls[indexToUse]}
           alt="Main gallery image"
-          className="w-full h-96 object-cover object-center sm:object-top rounded-lg cursor-pointer"
+          className="w-full h-auto sm:h-96 object-cover object-center sm:object-top rounded-lg cursor-pointer aspect-square sm:aspect-auto"
           onClick={() => handleImageClick(indexToUse)}
           loading="lazy"
         />

@@ -1,0 +1,201 @@
+{
+  "title": "Japan 8D Golden Route + Shirakawago + Tokyo DisneySea",
+  "slug": "jpn-skw-disney-8d",
+  "jenistrip": "Open",
+  "category": "internasional",
+  "ispromo": false,
+  "meetingpoint": ["Jakarta"],
+  "descriptions": [
+    {
+      "text": ""
+    }
+  ],
+  "images": [{ "url": "hero-3.jpg" }],
+  "itineraries": [
+    {
+      "items": [
+        {
+          "time": "19.00",
+          "details": "Berkumpul di Bandara Soekarno Hatta (CGK)"
+        },
+        {
+          "time": "20.00",
+          "details": "Check-in counter"
+        },
+        {
+          "time": "21.25",
+          "details": "Take off CGK"
+        }
+      ],
+      "title": "CGK - HND"
+    },
+    {
+      "items": [
+        {
+          "time": "09.00",
+          "details": "HND - ITM (Osaka)"
+        },
+        {
+          "time": "10.05",
+          "details": "Arrive ITM (Osaka)"
+        },
+        {
+          "time": "-",
+          "details": "Shinsaibashi - Dotonbori"
+        },
+        {
+          "time": "-",
+          "details": "Kuil Fushimi Inari"
+        },
+        {
+          "time": "-",
+          "details": "Kiyomizu Temple"
+        },
+        {
+          "time": "-",
+          "details": "Menuju Gifu dan bermalam di hotel"
+        }
+      ],
+      "title": "OSAKA - KYOTO - GIFU (L)"
+    },
+    {
+      "items": [
+        {
+          "time": "-",
+          "details": "Breakfast"
+        },
+        {
+          "time": "-",
+          "details": "Shirakawago Village"
+        },
+        {
+          "time": "-",
+          "details": "Takayama Old Town"
+        },
+        {
+          "time": "-",
+          "details": "Menuju Matsumoto dan bermalam di hotel"
+        }
+      ],
+      "title": "GIFU - SHIRAKAWAGO - TAKAYAMA - MATSUMOTO (B, L)"
+    },
+    {
+      "items": [
+        {
+          "time": "-",
+          "details": "Breaksfast"
+        },
+        {
+          "time": "-",
+          "details": "Mt. Fuji"
+        },
+        {
+          "time": "-",
+          "details": "Oshino Hakkai Village"
+        },
+        {
+          "time": "-",
+          "details": "Menuju Lake Kawaguchi dan bermalam di hotel sekitar Kawaguchi"
+        }
+      ],
+      "title": "MATSUMOTO - MT. FUJI (B, D)"
+    },
+    {
+      "items": [
+        {
+          "time": "-",
+          "details": "Breakfast"
+        },
+        {
+          "time": "-",
+          "details": "Gotemba Premium Outlet,"
+        },
+        {
+          "time": "-",
+          "details": "Asakusa dan photo stop di Tokyo Sky Tree."
+        },
+        {
+          "time": "-",
+          "details": "Menuju Odaiba dan bermalam di hotel sekitar Tokyo"
+        }
+      ],
+      "title": "KAWAGUCHI - KOTEMBA - TOKYO (B, L)"
+    },
+    {
+      "items": [
+        {
+          "time": "-",
+          "details": "Breakfast"
+        },
+        {
+          "time": "-",
+          "details": "Tokyo DisneySea"
+        },
+        {
+          "time": "-",
+          "details": "Check-in hotel dan bermalam di hotel"
+        }
+      ],
+      "title": "TOKYO DISNEYSEA (B)"
+    },
+    {
+      "items": [
+        {
+          "time": "-",
+          "details": "Breakfast"
+        },
+        {
+          "time": "-",
+          "details": "Bebas menjelajah Tokyo (No Bus, No Guide)"
+        },
+        {
+          "time": "-",
+          "details": "Check-in hotel dan bermalam di hotel"
+        }
+      ],
+      "title": "TOKYO FREE DAY (B)"
+    },
+    {
+      "items": [
+        {
+          "time": "15.00",
+          "details": "Berkumpul di Narita International Airport (NRT)"
+        },
+        {
+          "time": "16.50",
+          "details": "Check-in counter"
+        },
+        {
+          "time": "17.50",
+          "details": "Take off NRT"
+        },
+        {
+          "time": "23.45",
+          "details": "Tiba di Bandara Soekarno - Hatta (CGK)"
+        }
+      ],
+      "title": "NRT - CGK (B)"
+    }
+  ],
+  "price": ["24490"],
+  "fasilitas": {
+    "include": [
+      "Tiket pesawat PP (CGK - HND), (NRT - CGK)",
+      "Bagasi 23 KG/pax atau sesuai dengan ketentuan airlines",
+      "Akomodasi hotel *3/*4 setaraf (Twin / Triple)",
+      "Transportasi bus pariwisata & tiket masuk objek wisata",
+      "Acara Tour & makan sesuai program paket tour diatas",
+      "Tour Leader",
+      "Travel Insurance  sampai usia 69 tahun",
+      "Luggage Tag"
+    ],
+    "exclude": [
+      "Visa Jepang : Rp.900.000/pax (Konsulat Jakarta)",
+      "Visa Jepang Biasa : Rp.1.150.000/pax (Konsulat Luar Jakarta)",
+      "Visa Waiver Rp 375.000/pax",
+      "Tipping local guide, driver, Tour Leader : Rp. 215.000/Pax * 8 day = Rp. 1.720.000",
+      "Tip porter hotel, mini bar, laundry, telephone, kelebihan bagasi dll",
+      "SIM Card"
+    ]
+  }
+}

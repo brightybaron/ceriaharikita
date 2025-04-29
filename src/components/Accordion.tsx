@@ -4,10 +4,10 @@ import { IconChevronDown, IconChevronUp } from "@components/Icons";
 const Accordion = ({ data, faqPage }: { data: any; faqPage: boolean }) => {
   const [openDays, setOpenDays] = useState<{ [key: string]: boolean }>({});
 
-  const toggleDay = (title: string) => {
+  const toggleDay = (index: number) => {
     setOpenDays((prev: any) => ({
       ...prev,
-      [title]: !prev[title],
+      [index]: !prev[index],
     }));
   };
 
@@ -16,7 +16,7 @@ const Accordion = ({ data, faqPage }: { data: any; faqPage: boolean }) => {
       {data.map((item: any, index: number) => (
         <div
           key={index}
-          className="border border-gray-300 rounded-lg overflow-hidden"
+          className="border border-gray-300 rounded-sm overflow-hidden mb-2"
         >
           <button
             onClick={() => toggleDay(item.title)}
@@ -32,9 +32,21 @@ const Accordion = ({ data, faqPage }: { data: any; faqPage: boolean }) => {
                   openDays[item.title] ? "text-sandy-beige" : "text-deep-blue"
                 } font-semibold ${faqPage ? "hidden" : ""}`}
               >
-                Hari {index + 1}
+                Day {index + 1}
               </span>
-              <span className="ml-2 font-medium">{item.title}</span>
+              <span className="ml-2 font-medium">
+                {item.title
+                  .split(/(\([^)]*\))/)
+                  .map((part: string, index: number) =>
+                    part.startsWith("(") && part.endsWith(")") ? (
+                      <span key={index} className="font-bold">
+                        {part}
+                      </span>
+                    ) : (
+                      <span key={index}>{part}</span>
+                    )
+                  )}
+              </span>
             </div>
             {openDays[item.title] ? <IconChevronUp /> : <IconChevronDown />}
           </button>

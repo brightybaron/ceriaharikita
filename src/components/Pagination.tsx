@@ -6,16 +6,18 @@ const Pagination = ({ data }: any) => {
   const itemsPerPage = 10;
   return (
     <>
-      <ul className="sm:p-4 p-2 space-y-1 list-disc list-inside">
-        {data
-          .slice(
-            currentPage * itemsPerPage,
-            currentPage * itemsPerPage + itemsPerPage
-          )
-          .map((item: any) => (
-            <li key={item}>{item}</li>
-          ))}
-      </ul>
+      <div className="px-2">
+        <ul className="p-4 space-y-1 list-disc">
+          {data
+            .slice(
+              currentPage * itemsPerPage,
+              currentPage * itemsPerPage + itemsPerPage
+            )
+            .map((item: any) => (
+              <li key={item}>{item}</li>
+            ))}
+        </ul>
+      </div>
       {data.length > itemsPerPage && (
         <div className="flex items-center justify-center mt-4 space-x-4">
           <button
