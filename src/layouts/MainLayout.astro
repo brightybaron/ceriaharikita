@@ -18,7 +18,7 @@ const {
     "Ceria Hari Kita - Menyediakan beragam paket wisata domestik maupun internasional",
   image = "/logo.png",
   canonical = currentPath,
-  keywords = "travel, trip, tour, jepang, indonesia, ceria hari kita, cerita, teman cerita, perjalanan, wisata, open trip, private trip, ",
+  keywords = "travel, open trip, tour, jepang, indonesia, ceria hari kita, cerita, teman cerita, perjalanan, wisata, open trip, private trip, cerita tour, bromo, malang",
 } = Astro.props;
 
 const pageTitle = currentPath === "/" ? "Home" : title;
@@ -29,10 +29,9 @@ const fullCanonical = `${siteUrl}${canonical}`;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/*" href="/logo.png" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle} | Ceria Hari Kita</title>
 
     <!-- Primary Meta Tags -->
     <title>{pageTitle || title} | Ceria Hari Kita</title>
@@ -40,6 +39,10 @@ const fullCanonical = `${siteUrl}${canonical}`;
     <meta name="description" content={description} />
     <meta name="keywords" content={`${keywords}`} />
     <link rel="canonical" href={fullCanonical} />
+
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-title" content="Ceria Hari Kita" />
+    <meta name="application-name" content="Ceria Hari Kita" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -63,7 +66,7 @@ const fullCanonical = `${siteUrl}${canonical}`;
 
     <!-- Tambahan Meta Tags -->
     <meta name="author" content="Ceria Hari Kita" />
-    <meta name="robots" content="index, no-follow" />
+    <meta name="robots" content="index, follow" />
   </head>
   <body class="bg-gray-100 min-h-screen flex flex-col">
     <Navbar currentPath={currentPath} client:load />
@@ -119,7 +122,7 @@ const fullCanonical = `${siteUrl}${canonical}`;
         <div class="flex flex-col gap-y-2">
           <h3 class="text-lg font-bold underline mb-2">Our Office</h3>
           <div class="text-sm space-y-2 font-medium">
-            <p>Perumahan Graha Indah Blok P/2 Tikung, Lamongan 62218</p>
+            <p>Perumahan Graha Indah Blok P/2 Tikung, Lamongan 62281</p>
             <p>Phone: +62 813 8491 3190</p>
             <p>Email: ceritatravelkita@gmail.com</p>
           </div>
