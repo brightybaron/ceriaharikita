@@ -1,7 +1,7 @@
 ---
 import Accordion from "@components/Accordion";
 import GalleryWrapper from "@components/GalleryWrapper";
-import { IconClock4, IconPeople, IconPerson } from "@components/Icons";
+import { IconChat, IconClock4, IconPeople, IconPerson } from "@components/Icons";
 import NavTab from "@components/Navtab";
 import CTA from "@components/CTA.astro";
 import Pagination from "@components/Pagination";
@@ -214,6 +214,17 @@ const { data } = Astro.props;
     </div>
     <!-- CTA -->
     <CTA data={data} />
+    <div class="mt-4">
+      <a 
+        href={`https://wa.me/?text=Yuk lihat paket trip ini: ${encodeURIComponent(Astro.url.pathname)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-x-2 w-fit ml-auto bg-green-500 hover:bg-green-600 text-white p-2 rounded font-medium transition-colors text-sm"
+      >
+        <IconChat />
+        Bagikan ke WhatsApp
+      </a>
+    </div>
   </div>
 </section>
 

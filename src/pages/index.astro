@@ -71,7 +71,7 @@ const cardsData = paketData.map((entry) => ({
   ispromo: entry.data.ispromo,
 }));
 
-const head = {
+const headSEO = {
   title: "Home",
   description:
     "Ceria Hari Kita - Menyediakan beragam paket wisata domestik maupun mancanegara yang beragam.",
@@ -82,7 +82,7 @@ const head = {
 };
 ---
 
-<MainLayout {...head}>
+<MainLayout {...headSEO}>
   <Hero {...heroProps}>
     <div class="mt-8 grid grid-cols-4 gap-x-4">
       {
