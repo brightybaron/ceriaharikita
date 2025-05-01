@@ -7,15 +7,16 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://ceriaharikita.com",
+  site: "https://www.ceriaharikita.com",
 
   integrations: [
     react(),
     // Add sitemap integration
     sitemap({
-      changefreq: "weekly",
+      changefreq: "monthly",
       priority: 0.7,
       lastmod: new Date(),
+      filter: (page) => page.startsWith("https://www.ceriaharikita.com"),
     }),
   ],
 
