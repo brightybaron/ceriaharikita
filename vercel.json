@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "https://ceriaharikita.com/:path*",
-      "destination": "https://www.ceriaharikita.com/:path*",
-      "permanent": true
-    }
-  ]
-}
