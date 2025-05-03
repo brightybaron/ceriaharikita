@@ -29,7 +29,8 @@ if (!entry) {
 
 const { data } = entry;
 
-const head = {
+const seoHead = {
+  title: data.title,
   deskripsi: data.descriptions[0].text,
   // image: data.images[0].url,
   canonical: Astro.url.pathname,
@@ -38,6 +39,6 @@ const head = {
 export const prerender = true;
 ---
 
-<MainLayout title={data.title} {...head}>
+<MainLayout {...seoHead}>
   <DetailPaketLayout data={data} />
 </MainLayout>

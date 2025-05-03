@@ -8,7 +8,10 @@ import {
 
 const Navbar = ({ currentPath }: { currentPath: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  // Set dropdown open by default if on any paket path
+  const [isDropDownOpen, setIsDropDownOpen] = useState(
+    currentPath.startsWith("/paket")
+  );
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   type MenuItem = {
@@ -25,13 +28,13 @@ const Navbar = ({ currentPath }: { currentPath: string }) => {
     { page: "Home", path: "/" },
     {
       page: "Paket",
-      path: "/paket/all",
+      path: "/paket",
       hasDropdown: true,
       dropdownItems: [
         { name: "Promo", path: "/paket/promo" },
         { name: "Domestik", path: "/paket/domestik" },
         { name: "Internasional", path: "/paket/internasional" },
-        { name: "Semua Paket", path: "/paket/all" },
+        { name: "Semua Paket", path: "/paket" },
       ],
     },
     { page: "About", path: "/about" },
@@ -40,8 +43,26 @@ const Navbar = ({ currentPath }: { currentPath: string }) => {
 
   const isActive = (path: string) => {
     if (path === "/" && currentPath === "/") return true;
-    if (path !== "/" && currentPath.startsWith(path)) return true;
+    if (path !== "/" && currentPath.startsWith(path)) {
+      // Special case for "Semua Paket" (/paket)
+      if (path === "/paket" && currentPath !== "/paket") {
+        const dropdownItem = listMenu
+          .find((item) => item.path === "/paket")
+          ?.dropdownItems?.find((item) => item.path === currentPath);
+        // Only return false if we're on a specific dropdown page
+        return !dropdownItem;
+      }
+      return true;
+    }
     return false;
+  };
+
+  // Special function to check if a dropdown item is active
+  const isDropdownItemActive = (path: string) => {
+    // For "Semua Paket", only highlight when exactly on /paket/
+    if (path === "/paket") return currentPath === "/paket";
+    // For other dropdown items, highlight when the path matches exactly
+    return currentPath === path;
   };
 
   useEffect(() => {
@@ -64,12 +85,19 @@ const Navbar = ({ currentPath }: { currentPath: string }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-deep-blue shadow-md">
+    <nav
+      className="fixed top-0 left-0 w-full z-50 bg-deep-blue shadow-md"
+      aria-label="Breadcrumb"
+    >
       <div className="max-w-7xl mx-auto sm:px-12 px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <a href="/" className="flex-shrink-0 flex items-center gap-x-1">
-            <img src="/logo.png" alt="logo-icon" className="h-10 w-10" />
+            <img
+              src="/logo.png"
+              alt="Logo Ceria Hari Kita - Travel Agency Indonesia"
+              className="h-10 w-10"
+            />
             <span className="text-xl font-bold text-white hover:text-soft-turquoise hover:cursor-pointer after:content-[''] after:block after:border-b-2 after:transition-all after:duration-300 after:scale-x-0 after:origin-center hover:after:scale-x-100">
               Ceria Hari Kita
             </span>
@@ -102,13 +130,13 @@ const Navbar = ({ currentPath }: { currentPath: string }) => {
                       </button>
                       {isDropDownOpen && (
                         <div className="absolute mt-2 w-48 shadow-lg rounded-xs bg-white z-30">
-                          <div className="py-2">
+                          <div className="p-2">
                             {item.dropdownItems?.map((dropdownItem, idx) => (
                               <a
                                 key={idx}
                                 href={dropdownItem.path}
                                 className={`block px-4 py-2 ${
-                                  isActive(dropdownItem.path)
+                                  isDropdownItemActive(dropdownItem.path)
                                     ? "text-black font-bold bg-soft-turquoise"
                                     : "text-gray-700 hover:bg-gray-100"
                                 }`}
@@ -141,7 +169,7 @@ const Navbar = ({ currentPath }: { currentPath: string }) => {
         {isMenuOpen && (
           <div className="md:hidden bg-deep-blue pb-3">
             {listMenu.map((item, index) => (
-              <div key={index} className="mt-2">
+              <div key={index} className="mt-2 font-medium">
                 {item.hasDropdown ? (
                   <div>
                     <button
@@ -155,23 +183,28 @@ const Navbar = ({ currentPath }: { currentPath: string }) => {
                       <span>{item.page}</span>
                       {isDropDownOpen ? <IconChevronUp /> : <IconChevronDown />}
                     </button>
-                    {isDropDownOpen && (
-                      <div className="pl-4 py-1 space-y-1">
-                        {item.dropdownItems?.map((dropdownItem, idx) => (
-                          <a
-                            key={idx}
-                            href={dropdownItem.path}
-                            className={`block px-3 py-2 rounded-sm ${
-                              isActive(dropdownItem.path)
-                                ? "text-deep-blue bg-gray-300"
-                                : "text-white"
-                            }`}
-                          >
-                            {dropdownItem.name}
-                          </a>
-                        ))}
-                      </div>
-                    )}
+                    {/* For paket menu, show dropdown if we're on any paket path OR if dropdown is toggled open */}
+                    {item.path === "/paket" &&
+                      (isDropDownOpen || currentPath.startsWith("/paket")) && (
+                        <ul className="pl-6 py-1 space-y-1 list-disc">
+                          {item.dropdownItems?.map((dropdownItem, idx) => (
+                            <div key={idx} className="pl-2">
+                              <li className="text-white">
+                                <a
+                                  href={dropdownItem.path}
+                                  className={`block px-3 py-2 rounded-sm ${
+                                    isDropdownItemActive(dropdownItem.path)
+                                      ? "text-deep-blue bg-gray-300"
+                                      : "text-white"
+                                  }`}
+                                >
+                                  {dropdownItem.name}
+                                </a>
+                              </li>
+                            </div>
+                          ))}
+                        </ul>
+                      )}
                   </div>
                 ) : (
                   <a
