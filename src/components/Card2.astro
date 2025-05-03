@@ -13,7 +13,7 @@ const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
         <div class="card-link">
           <img
             src={`/images/${image}`}
-            alt=""
+            alt={`Gambar ${title}`}
             class="object-cover object-center group-hover:scale-125 transition-all duration-300 h-full w-full"
             loading="lazy"
           />
@@ -25,15 +25,15 @@ const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
         <p class="text-sm sm:text-xs font-semibold">ON SALE</p>
       </div>
       <div
-        class="absolute top-48 group-hover:top-4 transition-all duration-300 left-0 w-full bg-white group-hover:bg-white/95 min-h-16 h-full px-2 pt-1"
+        class="absolute top-48 group-hover:top-4 transition-all duration-300 left-0 w-full bg-white group-hover:bg-white/95 min-h-16 h-full px-2 pt-1 border-t-2 border-gray-800"
       >
         <div class="relative px-2">
           <div class="absolute top-1/5 right-0 px-2 group-hover:hidden">
             <p class="text-end text-sm">
-              {price.length === 0 ? "Fix price" : "Start from"}
+              {price.length === 1 ? "Fix price" : "Start from"}
             </p>
             <p class="font-semibold text-deep-blue leading-4">
-              Rp. {`${Number(price).toLocaleString("id-ID")}.000 `}
+              Rp. {`${Number(price[0]).toLocaleString("id-ID")}.000 `}
             </p>
             <p class="text-end text-sm leading-2.5">/ pax</p>
           </div>
@@ -55,14 +55,14 @@ const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
               <span>
                 <IconClock4 />
               </span>
-              {durasi} Hari
+              {durasi} Hari {durasi - 1 === 0 ? "" : `${durasi - 1} Malam`}
             </div>
             <div class="mt-10">
               <p class="text-sm leading-3">
-                {price.length === 0 ? "Fix price" : "Start from"}
+                {price.length === 1 ? "Fix price" : "Start from"}
               </p>
               <p class="text-xl font-semibold text-deep-blue">
-                Rp. {`${Number(price).toLocaleString("id-ID")}.000 `}<span
+                Rp. {`${Number(price[0]).toLocaleString("id-ID")}.000 `}<span
                   class="font-normal">/ pax</span
                 >
               </p>

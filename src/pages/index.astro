@@ -66,7 +66,7 @@ const cardsData = paketData.map((entry) => ({
   slug: entry.id,
   jenistrip: entry.data.jenistrip,
   durasi: entry.data.itineraries.length,
-  price: entry.data.price[0],
+  price: entry.data.price,
   category: entry.data.category,
   ispromo: entry.data.ispromo,
 }));
@@ -107,10 +107,9 @@ const headSEO = {
       <p>Dapatkan paket liburan terbaik kami</p>
     </div>
     <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 mt-8">
-      <!-- {cardsData.sort().slice(0, 4).map((card) => <Card2 {...card} />)} -->
       {
         cardsData
-          .sort((a, b) => a.title.localeCompare(b.title)) // sorting berdasar title ascending
+          .sort((a, b) => a.title.localeCompare(b.title))
           .slice(0, 4)
           .map((card) => <Card2 {...card} />)
       }
@@ -151,7 +150,7 @@ const headSEO = {
       <div class="mt-8 max-w-7xl flex justify-center mx-auto sm:px-12 px-6">
         <button
           class="hover:bg-deep-blue hover:text-white hover:scale-105 hover:cursor-pointer font-medium px-4 py-2 rounded transition-all duration-200 inline-flex items-center gap-x-1 border border-deep-blue"
-          onclick="window.location.href='/paket/all'"
+          onclick="window.location.href='/paket'"
         >
           <span class="inline-flex">
             <IconPaperPlane />
