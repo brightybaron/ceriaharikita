@@ -8,10 +8,13 @@ import {
 
 const Navbar = ({ currentPath }: { currentPath: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // Set dropdown open by default if on any paket path
-  const [isDropDownOpen, setIsDropDownOpen] = useState(
-    currentPath.startsWith("/paket")
-  );
+
+  // Change: Initialize dropdown state
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+
+  // Use this to store the previous path for comparison
+  const prevPathRef = useRef(currentPath);
+
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   type MenuItem = {
@@ -64,6 +67,23 @@ const Navbar = ({ currentPath }: { currentPath: string }) => {
     // For other dropdown items, highlight when the path matches exactly
     return currentPath === path;
   };
+
+  useEffect(() => {
+    // Handle dropdown state based on path changes
+    if (currentPath !== prevPathRef.current) {
+      // Close dropdown when navigating to a new path
+      setIsDropDownOpen(false);
+      // Update the previous path reference
+      prevPathRef.current = currentPath;
+    }
+
+    // Check if we should initially open the dropdown based on current path
+    // This runs only on component mount
+    if (currentPath.startsWith("/paket") && !isDropDownOpen) {
+      // We're on a paket page, so highlight the nav item
+      // but don't automatically open the dropdown
+    }
+  }, [currentPath]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -183,28 +203,26 @@ const Navbar = ({ currentPath }: { currentPath: string }) => {
                       <span>{item.page}</span>
                       {isDropDownOpen ? <IconChevronUp /> : <IconChevronDown />}
                     </button>
-                    {/* For paket menu, show dropdown if we're on any paket path OR if dropdown is toggled open */}
-                    {item.path === "/paket" &&
-                      (isDropDownOpen || currentPath.startsWith("/paket")) && (
-                        <ul className="pl-6 py-1 space-y-1 list-disc">
-                          {item.dropdownItems?.map((dropdownItem, idx) => (
-                            <div key={idx} className="pl-2">
-                              <li className="text-white">
-                                <a
-                                  href={dropdownItem.path}
-                                  className={`block px-3 py-2 rounded-sm ${
-                                    isDropdownItemActive(dropdownItem.path)
-                                      ? "text-deep-blue bg-gray-300"
-                                      : "text-white"
-                                  }`}
-                                >
-                                  {dropdownItem.name}
-                                </a>
-                              </li>
-                            </div>
-                          ))}
-                        </ul>
-                      )}
+                    {isDropDownOpen && (
+                      <ul className="pl-6 py-1 space-y-1 list-disc">
+                        {item.dropdownItems?.map((dropdownItem, idx) => (
+                          <div key={idx} className="pl-2">
+                            <li className="text-white">
+                              <a
+                                href={dropdownItem.path}
+                                className={`block px-3 py-2 rounded-sm ${
+                                  isDropdownItemActive(dropdownItem.path)
+                                    ? "text-deep-blue bg-gray-300"
+                                    : "text-white"
+                                }`}
+                              >
+                                {dropdownItem.name}
+                              </a>
+                            </li>
+                          </div>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ) : (
                   <a
