@@ -5,6 +5,7 @@ import { IconChat, IconClock4, IconPeople, IconPerson } from "@components/Icons"
 import NavTab from "@components/Navtab";
 import CTA from "@components/CTA.astro";
 import Pagination from "@components/Pagination";
+import VoucherSection from "@components/VoucherSection";
 
 const tabs = [
   { name: "overview" },
@@ -213,7 +214,8 @@ const { data } = Astro.props;
       >
     </div>
     <!-- CTA -->
-    <CTA data={data} />
+    <!-- <CTA data={data} /> -->
+     <VoucherSection title={data.title} client:load/>
     <div class="mt-4">
       <a 
         href={`https://wa.me/?text=Yuk lihat paket trip ini: ${encodeURIComponent(Astro.url.pathname)}`}
