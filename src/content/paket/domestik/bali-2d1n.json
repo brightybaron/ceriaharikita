@@ -1,0 +1,42 @@
+{
+  "title": "Bali 2 Days 1 Night Trip",
+  "slug": "bali-2d1n",
+  "jenistrip": "Private",
+  "category": "domestik",
+  "ispromo": false,
+  "meetingpoint": ["Surabaya, Gresik, Sidoarjo, Lamongan"],
+  "descriptions": [
+    {
+      "text": ""
+    }
+  ],
+  "images": [{ "url": "domestik/bali-2d1n.jpg" }],
+  "itineraries": [
+    {
+      "items": [
+        {
+          "time": "",
+          "details": "Silahkan menghubungi via WA/Chat"
+        }
+      ],
+      "title": "Silahkan menghubungi via WA/Chat"
+    }
+  ],
+  "price": ["960"],
+  "fasilitas": {
+    "include": [
+      "Transportasi PP",
+      "Tiket penyeberangan Ketapang - Gilimanuk",
+      "Hotel *3/setaraf",
+      "Makan sesuai program",
+      "Air Mineral 2x",
+      "Snack 1x",
+      "Dokumentasi",
+      "Tour Leader",
+      "Guide lokal",
+      "Tol, BBM & Parkir",
+      "P3K"
+    ],
+    "exclude": ["Optional trip", "Keperluan Pribadi"]
+  }
+}

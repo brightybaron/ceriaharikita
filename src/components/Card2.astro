@@ -1,7 +1,8 @@
 ---
 import { IconClock4, IconPeople, IconPerson } from "@components/Icons";
 
-const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
+const { image, title, slug, jenistrip, durasi, price, ispromo, category } =
+  Astro.props;
 ---
 
 <>
@@ -30,7 +31,13 @@ const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
         <div class="relative px-2">
           <div class="absolute top-1/5 right-0 px-2 group-hover:hidden">
             <p class="text-end text-sm">
-              {price.length === 1 ? "Fix price" : "Start from"}
+              {
+                price.length === 1
+                  ? category === "domestik"
+                    ? "Start from"
+                    : "Fix price"
+                  : "Start from"
+              }
             </p>
             <p class="font-semibold text-deep-blue leading-4">
               Rp. {`${Number(price[0]).toLocaleString("id-ID")}.000 `}
@@ -59,7 +66,13 @@ const { image, title, slug, jenistrip, durasi, price, ispromo } = Astro.props;
             </div>
             <div class="mt-10">
               <p class="text-sm leading-3">
-                {price.length === 1 ? "Fix price" : "Start from"}
+                {
+                  price.length === 1
+                    ? category === "domestik"
+                      ? "Start from"
+                      : "Fix price"
+                    : "Start from"
+                }
               </p>
               <p class="text-xl font-semibold text-deep-blue">
                 Rp. {`${Number(price[0]).toLocaleString("id-ID")}.000 `}<span
