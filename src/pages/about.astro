@@ -5,6 +5,7 @@ import {
   IconMail,
   IconInstagram,
 } from "@components/Icons";
+import Service from "@components/Service.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 ---
 
@@ -56,30 +57,14 @@ import MainLayout from "@layouts/MainLayout.astro";
         </div>
       </div>
     </article>
-
-    <section class="mt-12">
-      <h2 class="text-xl font-bold mb-4 tracking-wide">
-        Mengapa Memilih Teman Cerita?
-      </h2>
-      <div class="px-4">
-        <ul class="list-disc ml-5">
-          <li>Tim profesional yang berpengalaman dan ramah</li>
-          <li>Jadwal perjalanan yang bisa disesuaikan</li>
-          <li>Itinerary seru dan fleksibel sesuai kebutuhan</li>
-          <li>Harga terjangkau dan transparan tanpa biaya tersembunyi</li>
-          <li>Dokumentasi lengkap dan fasilitas pendukung perjalanan</li>
-          <li>Fokus utama pada kenyamanan dan kepuasan pelanggan</li>
-        </ul>
-      </div>
-    </section>
   </section>
 
   <section
     class="grid sm:grid-cols-3 grid-cols-1 mt-12 px-4 lg:px-8 sm:px-6 max-w-7xl mx-auto"
   >
     <div class="col-span-1">
-      <h2 class="text-2xl underline font-semibold mb-2">Alamat Kantor</h2>
-      <p class="text-xl font-bold">Lamongan, Jawa Timur</p>
+      <h2 class="text-xl underline font-semibold mb-2">Alamat Kantor</h2>
+      <p class="text-lg font-bold">Lamongan, Jawa Timur</p>
       <ul class="my-4 ml-4 space-y-2 text-base">
         <li class="flex items-center gap-x-2">
           <IconMapPinHouse />
@@ -128,4 +113,27 @@ import MainLayout from "@layouts/MainLayout.astro";
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
+
+  <section class="max-w-7xl mx-auto px-4 lg:px-8 sm:px-6 mt-12">
+    <h2 class="text-xl font-bold mb-4 tracking-wide">
+      Mengapa Memilih Teman Cerita?
+    </h2>
+    <div class="px-4">
+      <ul class="list-disc ml-5">
+        <li>Tim profesional yang berpengalaman dan ramah</li>
+        <li>Jadwal perjalanan yang bisa disesuaikan</li>
+        <li>Itinerary seru dan fleksibel sesuai kebutuhan</li>
+        <li>Harga terjangkau dan transparan tanpa biaya tersembunyi</li>
+        <li>Dokumentasi lengkap dan fasilitas pendukung perjalanan</li>
+        <li>Fokus utama pada kenyamanan dan kepuasan pelanggan</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-4 lg:px-8 sm:px-6 pt-2" id="layanan">
+    <h2 class="text-xl font-bold text-center tracking-wide mt-12 mb-8">
+      Layanan Kami
+    </h2>
+    <Service />
+  </div>
 </MainLayout>

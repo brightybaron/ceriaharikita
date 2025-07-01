@@ -1,0 +1,60 @@
+---
+const services = [
+  {
+    title: "Group Tour",
+    image: "/images/group.webp",
+    description: [
+      "Liburan seru bersama rombongan kini lebih mudah dengan layanan Group Tour. Cocok untuk keluarga besar, komunitas, sekolah, hingga perusahaan yang ingin menjelajah bersama dalam suasana hangat dan menyenangkan.",
+      "Setiap perjalanan dirancang khusus dengan itinerary fleksibel, fasilitas lengkap, dan pemandu berpengalaman. Teman Cerita memastikan pengalaman wisata yang penuh cerita, kebersamaan, dan momen tak terlupakan bagi seluruh peserta.",
+    ],
+  },
+  {
+    title: "Private Tour",
+    image: "/images/hero-3.jpg",
+    description: [
+      "Bagi kamu yang menginginkan kebebasan dalam menjelajah, Private Tour hadir sebagai solusi perjalanan yang eksklusif. Tentukan destinasi, waktu, dan gaya liburan sesuai selera dan kenyamananmu sendiri.",
+      "Cocok untuk pasangan, keluarga kecil, atau solo traveler. Teman Cerita siap memberikan layanan personal dengan detail terbaik untuk menciptakan liburan yang lebih intim, fleksibel, dan bermakna.",
+    ],
+  },
+  {
+    title: "MICE Services",
+    image: "/images/mice.webp",
+    description: [
+      "Layanan MICE kami dirancang untuk memenuhi kebutuhan perjalanan bisnis dan korporat, mulai dari rapat kerja, perjalanan insentif, konferensi, hingga pameran dengan standar profesional dan eksekusi yang rapi.",
+      "Kami bantu dari perencanaan hingga pelaksanaan, termasuk venue, transportasi, dan akomodasi. Dengan pengalaman dan jaringan luas, kami pastikan acara Anda berjalan sukses, efisien, dan tetap menyenangkan.",
+    ],
+  },
+];
+---
+
+<section class="space-y-12">
+  {
+    services.map((service, index) => (
+      <div class="overflow-hidden grid grid-cols-1 md:grid-cols-2 mx-auto gap-y-4 gap-x-8">
+        <div
+          class={`relative flex flex-col justify-center about-section ${index % 2 === 1 ? "md:order-last" : "md:order-first"}`}
+        >
+          <p class="text-xl font-bold mb-4 leading-tight capitalize underline">
+            {service.title}
+          </p>
+
+          <div class="text-description text-gray-800 space-y-4">
+            {service.description.map((item) => (
+              <p>{item}</p>
+            ))}
+          </div>
+        </div>
+
+        <div class="image-container relative flex items-center">
+          <div class="w-full aspect-[4/3]">
+            <img
+              src={service.image}
+              alt={service.title}
+              class="w-full h-full object-cover rounded-lg shadow-lg relative"
+            />
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</section>
