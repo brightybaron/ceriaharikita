@@ -5,6 +5,12 @@
   "category": "domestik",
   "ispromo": false,
   "meetingpoint": ["Yogyakarta"],
+  "destinasi": [
+    "Wisata Coban",
+    "Hutan Pinus",
+    "Pantai Parangtritis",
+    "Obelix Hills"
+  ],
   "descriptions": [
     {
       "text": ""

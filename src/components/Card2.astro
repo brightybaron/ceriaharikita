@@ -33,7 +33,7 @@ const { image, title, slug, jenistrip, durasi, price, ispromo, category } =
             <p class="text-end text-sm">
               {
                 price.length === 1
-                  ? category === "domestik"
+                  ? category === "domestik" && jenistrip === "Group"
                     ? "Start from"
                     : "Fix price"
                   : "Start from"
@@ -52,7 +52,13 @@ const { image, title, slug, jenistrip, durasi, price, ispromo, category } =
               class="flex items-center text-sm text-slate-700 font-medium gap-x-1"
             >
               <span>
-                {jenistrip === "Private" ? <IconPerson /> : <IconPeople />}
+                {
+                  jenistrip === "Open" || jenistrip === "Group" ? (
+                    <IconPeople />
+                  ) : (
+                    <IconPerson />
+                  )
+                }
               </span>
               {jenistrip} Trip
             </div>
@@ -68,7 +74,7 @@ const { image, title, slug, jenistrip, durasi, price, ispromo, category } =
               <p class="text-sm leading-3">
                 {
                   price.length === 1
-                    ? category === "domestik"
+                    ? category === "domestik" && jenistrip === "Group"
                       ? "Start from"
                       : "Fix price"
                     : "Start from"

@@ -29,7 +29,7 @@ const { data } = Astro.props;
       }
     </div>
     <div class="flex items-center gap-x-1 px-2 py-1">
-      {data.jenistrip === "Private" ? <IconPerson />  : <IconPeople/>}      
+      {data.jenistrip === "Open" || data.jenistrip === "Group" ? <IconPeople />  : <IconPerson />}      
       {data.jenistrip} Trip
     </div>
     {data.ispromo === true && (
@@ -77,7 +77,7 @@ const { data } = Astro.props;
                 }
               </td>
             </tr>
-            <tr class="">
+            <tr class={data.itineraries[0].items[0].time === "" ? "hidden" : ""}>
               <td class="p-2 border border-gray-400 font-semibold"
                 >Waktu Mulai</td
               >
@@ -89,7 +89,7 @@ const { data } = Astro.props;
                 } WIB
               </td>
             </tr>
-            <tr class="">
+            <tr class={data.itineraries[0].items[0].time === "" ? "hidden" : ""}>
               <td class="p-2 border border-gray-400 font-semibold"
                 >Waktu Selesai</td
               >
@@ -105,6 +105,24 @@ const { data } = Astro.props;
                       1
                   ].time
                 } WIB
+              </td>
+            </tr>
+            <tr class="">
+              <td class="p-2 border border-gray-400 font-semibold w-1/4"
+                >Destinasi</td
+              >
+              <td class="p-2 border border-gray-400">
+                {
+                  data.destinasi.length === 1 ? (
+                    data.destinasi[0]
+                  ) : (
+                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                      {data.destinasi.map((item: string) => (
+                        <li class="list-inside">{item}</li>
+                      ))}
+                    </div>
+                  )
+                }
               </td>
             </tr>
           </tbody>
@@ -160,9 +178,13 @@ const { data } = Astro.props;
           <p class="text-sm italic">
             {
               data.price.length === 1
-                ? ""
-                : `*Lebih dari ${data.price.length + 1} orang/grup besar, silakan hubungi kami.`}
+                ? data.jenistrip === "Group"
+                  ? "*Harga untuk peserta dengan jumlah 45-50 orang. Untuk jumlah peserta lebih atau kurang dari 45-50 orang, silakan hubungi kami."
+                  : ""
+                : `*Lebih dari ${data.price.length + 1} orang/grup besar, silakan hubungi kami.`
+            }
             <!-- {
+              `*Harga untuk peserta dengan jumlah 45 - 50 orang.`
               `*Lebih dari ${data.price.length + 1} orang/grup besar, silakan hubungi kami.`
             } -->
           </p>
@@ -208,7 +230,15 @@ const { data } = Astro.props;
     <div
       class="h-auto bg-sandy-beige py-4 border-y-2 border-black rounded text-center"
     >
-      <span class="text-sm font-medium italic">{data.jenistrip === "Open" ? "Fix Price : " : data.price.length === 1 ? "Fix price : " : "Mulai dari : "}</span>
+      <span class="text-sm font-medium italic">
+        {
+          data.price.length === 1
+            ? data.category === "domestik" && data.jenistrip === "Group"
+              ? "Start from"
+              : "Fix price"
+            : "Start from"
+        }
+      </span>
       <span class="font-bold text-lg"
         >Rp. {`${Number(data.price[0]).toLocaleString("id-ID")}.000`} / pax</span
       >

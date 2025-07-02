@@ -1,10 +1,17 @@
 {
   "title": "Bali 2 Days 1 Night Trip",
   "slug": "bali-2d1n",
-  "jenistrip": "Private",
+  "jenistrip": "Group",
   "category": "domestik",
   "ispromo": false,
   "meetingpoint": ["Surabaya, Gresik, Sidoarjo, Lamongan"],
+  "destinasi": [
+    "Sunset Tanah Lot",
+    "Desa Adat Panglipuran",
+    "Pantai Melasti",
+    "Dinner Jimbaran",
+    "Danau Bedugul"
+  ],
   "descriptions": [
     {
       "text": ""
@@ -12,6 +19,15 @@
   ],
   "images": [{ "url": "domestik/bali-2d1n.jpg" }],
   "itineraries": [
+    {
+      "items": [
+        {
+          "time": "",
+          "details": "Silahkan menghubungi via WA/Chat"
+        }
+      ],
+      "title": "Silahkan menghubungi via WA/Chat"
+    },
     {
       "items": [
         {

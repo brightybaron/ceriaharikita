@@ -5,6 +5,16 @@
   "category": "domestik",
   "ispromo": false,
   "meetingpoint": ["Lamongan", "Gresik", "Surabaya", "Malang"],
+  "destinasi": [
+    "Air Terjun",
+    "Taman Edelweiss",
+    "Sunrise View Point",
+    "Lembah Widodaren",
+    "Kawah Bromo",
+    "Pura Luhur Poten",
+    "Lautan Pasir",
+    "Savana Bromo & Bukit Teletubis"
+  ],
   "descriptions": [
     {
       "text": ""

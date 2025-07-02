@@ -5,6 +5,18 @@
   "category": "internasional",
   "ispromo": false,
   "meetingpoint": ["Jakarta"],
+  "destinasi": [
+    "Kuil Fushimi Inari",
+    "Kiyomizu Temple",
+    "Shirakawago Village",
+    "Takayama Old Town",
+    "Mt. Fuji",
+    "Oshino Hakkai Village",
+    "Lake Kawaguchi",
+    "Gotemba Premium Outlet",
+    "Photostop di Tokyo Sky Tree",
+    "Tokyo DisneySea"
+  ],
   "descriptions": [
     {
       "text": ""

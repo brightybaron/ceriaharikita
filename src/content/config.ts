@@ -10,6 +10,7 @@ const paketCollection = defineCollection({
     category: z.string(),
     ispromo: z.boolean(),
     meetingpoint: z.array(z.string()),
+    destinasi: z.array(z.string()),
     descriptions: z.array(
       z.object({
         text: z.string(),

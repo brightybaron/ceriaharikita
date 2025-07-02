@@ -5,6 +5,15 @@
   "category": "domestik",
   "ispromo": false,
   "meetingpoint": ["Yogyakarta"],
+  "destinasi": [
+    "Jeep Merapi",
+    "Wisata Petik Salak",
+    "Agrowisata Bhumi Merapi",
+    "Studio Alam Gamplong",
+    "Gumuk Pasir",
+    "Pantai Parangtritis",
+    "Obelix Hills"
+  ],
   "descriptions": [
     {
       "text": ""
