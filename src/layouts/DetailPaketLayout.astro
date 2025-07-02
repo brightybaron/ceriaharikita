@@ -248,7 +248,7 @@ const { data } = Astro.props;
      <VoucherSection title={data.title} client:load/>
     <div class="mt-4">
       <a 
-        href={`https://wa.me/?text=Yuk lihat paket trip ini: ${encodeURIComponent(Astro.url.pathname)}`}
+        href={`https://wa.me/?text=Yuk lihat paket trip ini: ${encodeURIComponent(Astro.url.origin + Astro.url.pathname)}`}
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center justify-center gap-x-2 w-fit ml-auto bg-green-500 hover:bg-green-600 text-white p-2 rounded font-medium transition-colors text-sm"
