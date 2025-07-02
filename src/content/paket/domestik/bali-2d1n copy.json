@@ -1,0 +1,70 @@
+{
+  "title": "Bali 3 Days 2 Night Trip",
+  "slug": "bali-3d2n",
+  "jenistrip": "Group",
+  "category": "domestik",
+  "ispromo": false,
+  "meetingpoint": ["Surabaya, Gresik, Sidoarjo, Lamongan"],
+  "destinasi": [
+    "Sunset Tanah Lot",
+    "Desa Adat Panglipuran",
+    "Pantai Melasti",
+    "Dinner Jimbaran",
+    "Danau Bedugul",
+    "Tari Barong",
+    "Garuda Wisnu Kencana"
+  ],
+  "descriptions": [
+    {
+      "text": ""
+    }
+  ],
+  "images": [{ "url": "domestik/bali-3d2n.jpg" }],
+  "itineraries": [
+    {
+      "items": [
+        {
+          "time": "",
+          "details": "Silahkan menghubungi via WA/Chat"
+        }
+      ],
+      "title": "Silahkan menghubungi via WA/Chat"
+    },
+    {
+      "items": [
+        {
+          "time": "",
+          "details": "Silahkan menghubungi via WA/Chat"
+        }
+      ],
+      "title": "Silahkan menghubungi via WA/Chat"
+    },
+    {
+      "items": [
+        {
+          "time": "",
+          "details": "Silahkan menghubungi via WA/Chat"
+        }
+      ],
+      "title": "Silahkan menghubungi via WA/Chat"
+    }
+  ],
+  "price": ["1500"],
+  "fasilitas": {
+    "include": [
+      "Transportasi PP",
+      "Tiket penyeberangan Ketapang - Gilimanuk",
+      "Tiket masuk wisata",
+      "Hotel *3/setaraf (Inap 2 malam)",
+      "Makan sesuai program",
+      "Air Mineral 3x",
+      "Snack 1x",
+      "Dokumentasi",
+      "Tour Leader",
+      "Guide lokal",
+      "Tol, BBM & Parkir",
+      "P3K"
+    ],
+    "exclude": ["Optional trip", "Keperluan Pribadi"]
+  }
+}
