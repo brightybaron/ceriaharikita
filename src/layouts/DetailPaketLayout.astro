@@ -139,7 +139,7 @@ const { data } = Astro.props;
 
       <div id={tabs[1].name} class="tab-pane">
         <div class="space-y-2">
-          <Accordion data={data.itineraries} faqPage={false} client:load />
+          <Accordion data={data.itineraries[0].items[0].time === "" ? data.itineraries.slice(0,1) : data.itineraries} faqPage={false} client:load />
           <p class="text-sm text-end italic mt-4">
             <strong>*</strong> Hanya sebagai acuan dasar, dalam pelaksanaanya menyesuaikan
             dengan kondisi yang ada.
