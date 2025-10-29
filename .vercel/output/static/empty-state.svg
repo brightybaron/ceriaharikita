@@ -1,0 +1,11 @@
+<!-- Filename: empty-state.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <g fill="none" fill-rule="evenodd">
+    <circle fill="#F2F2F2" cx="400" cy="300" r="300"/>
+    <path fill="#D1D1D1" d="M540 400H260c-11 0-20-9-20-20v-80c0-11 9-20 20-20h280c11 0 20 9 20 20v80c0 11-9 20-20 20z"/>
+    <path fill="#FFF" d="M270 310h260v60H270z"/>
+    <path fill="#A3A3A3" d="M310 330h180v10H310zM310 350h120v10H310z"/>
+    <circle fill="#E0E0E0" cx="400" cy="220" r="40"/>
+    <path fill="#A3A3A3" d="M400 180a40 40 0 100 80 40 40 0 000-80z"/>
+  </g>
+</svg>
